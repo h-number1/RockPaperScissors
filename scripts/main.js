@@ -4,12 +4,28 @@ const scissors = "scissors";
 
 
 function getComputerChoice() {
+
     let computerChoice = Math.random();
     computerChoice = Number.parseFloat(computerChoice).toFixed(2);
-    console.log(computerChoice);
+    //the variable is having its value rounded to two decimal places.
+    if (computerChoice <= 0.33) {
+        computerChoice = rock;
+        return computerChoice;
+    } else if (computerChoice > 0.33 && computerChoice <= 0.66) {
+        //the variable is having its value rounded to two decimal places.
+        computerChoice = paper;
+        return computerChoice;
+    } else if (computerChoice > 0.66 && computerChoice <= 1) {
+        computerChoice = scissors;
+        return computerChoice;
+    } else {
+        return "error in code";
+    }
+    
+
 }
 
-getComputerChoice();
+console.log(getComputerChoice());
 
 //Create a function that represents the computer choice
 //This function will randomly return a value of rock, paper or scissors.
