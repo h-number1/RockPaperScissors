@@ -50,14 +50,30 @@ function getHumanChoice() {
 //prompt the user to choose one of the three choices.
 //return that choice.
 
-function playRound(humanChoice, computerChoice) {
+function playRound(computerChoice, humanChoice) {
+
+    let choice;
+
+    if ((computerChoice === "rock" && humanChoice === "scissors") 
+        || (computerChoice === "paper" && humanChoice === "rock")
+        || (computerChoice === "scissors" && humanChoice === "paper")) {
+            console.log(`Computer chose ${computerChoice} which beats ${humanChoice}. You Lose!`);
+    } 
+    else if ((humanChoice === "rock" && computerChoice === "scissors")
+        || (humanChoice === "paper" && computerChoice === "rock")
+        || (humanChoice === "scissors" && computerChoice === "paper")) {
+            console.log(`You chose ${humanChoice} which beats ${computerChoice}. You win!`);
+        }
 
 }
+
+//rock beats scissors
+// paper beats rock
+//scissors beats paper
 
 const computerSelection = getcomputerChoice(); // is equal to what the function returns
 const humanSelection = getHumanChoice(); // is also equal to what this function returns
 
-console.log(humanSelection);
-console.log(computerSelection);
+playRound(computerSelection, humanSelection);
 //create function that plays a 'round' of the game
 //
