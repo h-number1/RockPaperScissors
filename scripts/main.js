@@ -19,13 +19,34 @@ function getComputerChoice() {
         computerChoice = scissors;
         return computerChoice;
     } else {
-        return "error in code";
+        return "Error";
     }
     
-
 }
 
-console.log(getComputerChoice());
+function getHumanChoice() {
+    let userInput = prompt("Enter your choice...");
+
+    if (userInput.toLowerCase() === "rock") {
+        userInput = rock;
+        return userInput;
+    } else if (userInput.toLowerCase() === "paper") {
+        userInput = paper;
+        return userInput;
+    } else if (userInput.toLowerCase() === "scissors") {
+        userInput = scissors;
+        return userInput;
+    } else {
+        console.log("Please enter a valid choice.");
+    }
+}
+
+//console.log(getComputerChoice());
+console.log(getHumanChoice());
 
 //Create a function that represents the computer choice
 //This function will randomly return a value of rock, paper or scissors.
+
+//Create a function thst represents the human choice.
+//prompt the user to choose one of the three choices.
+//return that choice.
