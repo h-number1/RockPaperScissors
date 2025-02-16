@@ -5,7 +5,7 @@ const scissors = "scissors";
 let computerScore = 0;
 let humanScore = 0;
 
-function getcomputerChoice() {
+/*function getcomputerChoice() {
 
     let computerInput = Math.random();
     console.log(computerInput);
@@ -24,6 +24,17 @@ function getcomputerChoice() {
         return "Error";
     }
     
+} */ 
+//this is my old iteration of getting the computer choice...
+
+function getComputerChoice() {
+
+    const choiceArray = ["rock", "paper", "scissors"];
+    const randomNum = Math.floor(Math.random() * 3);
+    //console.log(randomNum);
+    let computerChoice = choiceArray[randomNum];
+    //console.log(computerChoice);
+    return computerChoice;
 }
 
 //Create a function that represents the computer choice
@@ -52,34 +63,41 @@ function getHumanChoice() {
 
 function playRound(computerChoice, humanChoice) {
 
-    let choice;
-
     if ((computerChoice === "rock" && humanChoice === "scissors") 
         || (computerChoice === "paper" && humanChoice === "rock")
         || (computerChoice === "scissors" && humanChoice === "paper")) {
             console.log(`Computer chose ${computerChoice} which beats ${humanChoice}. You Lose!`);
-            computerScore = computerScore + 1;
+            computerScore++;
             console.log(`The computer's total score is: ${computerScore}`);
     } 
     else if ((humanChoice === "rock" && computerChoice === "scissors")
         || (humanChoice === "paper" && computerChoice === "rock")
         || (humanChoice === "scissors" && computerChoice === "paper")) {
             console.log(`You chose ${humanChoice} which beats ${computerChoice}. You win!`);
-            humanScore = humanScore + 1;
+            humanScore++;
             console.log(`Your total score is: ${humanScore}`);
     } else {
         console.log('you both chose the same answer, try again.')
     }
-
 }
 
 //rock beats scissors
 // paper beats rock
 //scissors beats paper
 
-const computerSelection = getcomputerChoice(); // is equal to what the function returns
+const computerSelection = getComputerChoice(); // is equal to what the function returns
 const humanSelection = getHumanChoice(); // is also equal to what this function returns
 
-playRound(computerSelection, humanSelection);
+//playRound(computerSelection, humanSelection);
 //create function that plays a 'round' of the game
-//
+
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        playRound(computerSelection, humanSelection);
+
+        
+    }
+}
+//create function that plays a whole game (5 rounds)
+
+playGame();
