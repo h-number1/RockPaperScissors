@@ -8,13 +8,13 @@ let humanScore = 0;
 function getcomputerChoice() {
 
     let computerInput = Math.random();
+    console.log(computerInput);
     computerInput = Number.parseFloat(computerInput).toFixed(2);
     //the variable is having its value rounded to two decimal places.
     if (computerInput <= 0.33) {
         computerInput = rock;
         return computerInput;
     } else if (computerInput > 0.33 && computerInput <= 0.66) {
-        //the variable is having its value rounded to two decimal places.
         computerInput = paper;
         return computerInput;
     } else if (computerInput > 0.66 && computerInput <= 1) {
@@ -58,12 +58,18 @@ function playRound(computerChoice, humanChoice) {
         || (computerChoice === "paper" && humanChoice === "rock")
         || (computerChoice === "scissors" && humanChoice === "paper")) {
             console.log(`Computer chose ${computerChoice} which beats ${humanChoice}. You Lose!`);
+            computerScore = computerScore + 1;
+            console.log(`The computer's total score is: ${computerScore}`);
     } 
     else if ((humanChoice === "rock" && computerChoice === "scissors")
         || (humanChoice === "paper" && computerChoice === "rock")
         || (humanChoice === "scissors" && computerChoice === "paper")) {
             console.log(`You chose ${humanChoice} which beats ${computerChoice}. You win!`);
-        }
+            humanScore = humanScore + 1;
+            console.log(`Your total score is: ${humanScore}`);
+    } else {
+        console.log('you both chose the same answer, try again.')
+    }
 
 }
 
