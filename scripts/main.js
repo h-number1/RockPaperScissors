@@ -88,7 +88,7 @@ function playRound(computerChoice, humanChoice) {
 //create function that plays a 'round' of the game
 
 function playGame() {
-    while (humanScore < 2 && computerScore < 2) {
+    while (humanScore < 5 && computerScore < 5) {
         const computerSelection = getComputerChoice();
         const humanSelection = getHumanChoice();
         playRound(computerSelection, humanSelection);
