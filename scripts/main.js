@@ -29,7 +29,7 @@ let humanScore = 0;
 
 function getComputerChoice() {
 
-    const choiceArray = ["rock", "paper", "scissors"];
+    const choiceArray = [rock, paper, scissors];
     const randomNum = Math.floor(Math.random() * 3);
     //console.log(randomNum);
     let computerChoice = choiceArray[randomNum];
@@ -41,17 +41,17 @@ function getComputerChoice() {
 //This function will randomly return a value of rock, paper or scissors.
 
 function getHumanChoice() {
-    let userInput = prompt("Enter your choice...");
+    let humanChoice = prompt("Type your choice:", "")
 
-    if (userInput.toLowerCase() === "rock") {
-        userInput = rock;
-        return userInput;
-    } else if (userInput.toLowerCase() === "paper") {
-        userInput = paper;
-        return userInput;
-    } else if (userInput.toLowerCase() === "scissors") {
-        userInput = scissors;
-        return userInput;
+    if (humanChoice.toLowerCase() === "rock") {
+        humanChoice = rock;
+        return humanChoice;
+    } else if (humanChoice.toLowerCase() === "paper") {
+        humanChoice = paper;
+        return humanChoice;
+    } else if (humanChoice.toLowerCase() === "scissors") {
+        humanChoice = scissors;
+        return humanChoice;
     } else {
         console.log("Please enter a valid choice.");
     }
@@ -62,7 +62,7 @@ function getHumanChoice() {
 //return that choice.
 
 function playRound(computerChoice, humanChoice) {
-
+    
     if ((computerChoice === "rock" && humanChoice === "scissors") 
         || (computerChoice === "paper" && humanChoice === "rock")
         || (computerChoice === "scissors" && humanChoice === "paper")) {
@@ -85,17 +85,13 @@ function playRound(computerChoice, humanChoice) {
 // paper beats rock
 //scissors beats paper
 
-const computerSelection = getComputerChoice(); // is equal to what the function returns
-const humanSelection = getHumanChoice(); // is also equal to what this function returns
-
-//playRound(computerSelection, humanSelection);
 //create function that plays a 'round' of the game
 
 function playGame() {
     for (let i = 0; i < 5; i++) {
+        const computerSelection = getComputerChoice();
+        const humanSelection = getHumanChoice();
         playRound(computerSelection, humanSelection);
-
-        
     }
 }
 //create function that plays a whole game (5 rounds)
